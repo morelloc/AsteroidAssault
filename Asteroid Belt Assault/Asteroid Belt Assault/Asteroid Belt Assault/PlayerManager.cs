@@ -77,11 +77,18 @@ namespace Asteroid_Belt_Assault
             }
         }
 
+        Vector2 AngleToVector(float angle)
+        {
+            return new Vector2((float)Math.Sin(angle), -(float)Math.Cos(angle));
+        }
+
         private void HandleKeyboardInput(KeyboardState keyState)
         {
             if (keyState.IsKeyDown(Keys.Up))
             {
-                playerSprite.Velocity += new Vector2(0, -1);
+                Vector2 vel = AngleToVector(playerSprite.Rotation);
+
+                playerSprite.Velocity += vel;
             }
 
             if (keyState.IsKeyDown(Keys.Down))
