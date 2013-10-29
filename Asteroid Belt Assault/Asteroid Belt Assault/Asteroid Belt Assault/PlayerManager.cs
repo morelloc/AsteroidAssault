@@ -69,24 +69,22 @@ namespace Asteroid_Belt_Assault
         {
             if (shotTimer >= minShotTimer)
             {
+                Vector2 vel = TrigHelper.AngleToVector(playerSprite.Rotation);
+
                 PlayerShotManager.FireShot(
-                    playerSprite.Location + gunOffset,
-                    new Vector2(0, -1),
+                    playerSprite.Center + vel * 25f,
+                    vel,
                     true);
                 shotTimer = 0.0f;
             }
         }
 
-        Vector2 AngleToVector(float angle)
-        {
-            return new Vector2((float)Math.Sin(angle), -(float)Math.Cos(angle));
-        }
 
         private void HandleKeyboardInput(KeyboardState keyState)
         {
             if (keyState.IsKeyDown(Keys.Up))
             {
-                Vector2 vel = AngleToVector(playerSprite.Rotation);
+                Vector2 vel = TrigHelper.AngleToVector(playerSprite.Rotation);
 
                 playerSprite.Velocity += vel;
             }
