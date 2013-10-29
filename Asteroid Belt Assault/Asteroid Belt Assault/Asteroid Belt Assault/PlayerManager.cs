@@ -11,7 +11,7 @@ namespace Asteroid_Belt_Assault
     class PlayerManager
     {
         public Sprite playerSprite;
-        private float playerSpeed = 160.0f;
+        private float playerSpeed = 200.0f;
         private Rectangle playerAreaLimit;
 
         float angle = 0;
@@ -75,7 +75,7 @@ namespace Asteroid_Belt_Assault
                     playerSprite.Center + vel * 25f,
                     vel,
                     true);
-                shotTimer = 0.0f;
+                shotTimer = 0.01f;
             }
         }
 
