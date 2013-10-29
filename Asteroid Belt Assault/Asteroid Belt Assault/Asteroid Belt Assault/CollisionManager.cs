@@ -12,6 +12,7 @@ namespace Asteroid_Belt_Assault
         private PlayerManager playerManager;
         private EnemyManager enemyManager;
         private ExplosionManager explosionManager;
+        private PowerupManager powerupManager;
         private Vector2 offScreen = new Vector2(-500, -500);
         private Vector2 shotToAsteroidImpact = new Vector2(0, -20);
         private int enemyPointValue = 100;
@@ -20,12 +21,14 @@ namespace Asteroid_Belt_Assault
             AsteroidManager asteroidManager,
             PlayerManager playerManager,
             EnemyManager enemyManager,
-            ExplosionManager explosionManager)
+            ExplosionManager explosionManager,
+            PowerupManager powerupManager)
         {
             this.asteroidManager = asteroidManager;
             this.playerManager = playerManager;
             this.enemyManager = enemyManager;
             this.explosionManager = explosionManager;
+            this.powerupManager = powerupManager;
         }
 
         private void checkShotToEnemyCollisions()
@@ -125,6 +128,28 @@ namespace Asteroid_Belt_Assault
                         asteroid.Velocity / 10);
 
                     asteroid.Location = offScreen;
+
+                    playerManager.Destroyed = true;
+                    explosionManager.AddExplosion(
+                        playerManager.playerSprite.Center,
+                        Vector2.Zero);
+                }
+            }
+        }
+
+        private void checkPlayerToPowerupCollisions()
+        {
+            foreach (Sprite powerup in powerupManager.Powerups)
+            {
+                if (powerup.IsCircleColliding(
+                    playerManager.playerSprite.Center,
+                    playerManager.playerSprite.CollisionRadius))
+                {
+                    explosionManager.AddExplosion(
+                        powerup.Center,
+                        powerup.Velocity / 10);
+
+                    powerup.Location = offScreen;
 
                     playerManager.Destroyed = true;
                     explosionManager.AddExplosion(

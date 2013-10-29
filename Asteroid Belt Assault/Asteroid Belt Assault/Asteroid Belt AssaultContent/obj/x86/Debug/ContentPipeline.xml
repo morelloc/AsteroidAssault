@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\AsteroidAssault\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Textures\SpriteSheet.xnb</Output>
-      <Time>2013-10-29T07:35:23.9868-04:00</Time>
+      <Time>2013-10-29T08:15:19.7538-04:00</Time>
     </Item>
     <Item>
       <Source>Textures\TitleScreen.png</Source>
@@ -81,6 +81,15 @@
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\AsteroidAssault\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Fonts\Pericles14.xnb</Output>
       <Time>2013-10-29T07:35:23.9788-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Powerup Rapidfire.png</Source>
+      <Name>Powerup Rapidfire</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\eahscs\Documents\GitHub\AsteroidAssault\Asteroid Belt Assault\Asteroid Belt Assault\Asteroid Belt Assault\bin\x86\Debug\Content\Powerup Rapidfire.xnb</Output>
+      <Time>2013-10-29T08:10:56.364-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

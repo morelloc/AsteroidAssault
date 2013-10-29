@@ -29,7 +29,7 @@ namespace Asteroid_Belt_Assault
         PlayerManager playerManager;
         EnemyManager enemyManager;
         ExplosionManager explosionManager;
-
+        PowerupManager powerupManager;
         CollisionManager collisionManager;
 
         SpriteFont pericles14;
@@ -102,6 +102,7 @@ namespace Asteroid_Belt_Assault
                     this.Window.ClientBounds.Width,
                     this.Window.ClientBounds.Height));
 
+            powerupManager = new PowerupManager(spriteSheet, playerManager);
             enemyManager = new EnemyManager(
                 spriteSheet,
                 new Rectangle(0, 200, 50, 50),
@@ -123,7 +124,8 @@ namespace Asteroid_Belt_Assault
                 asteroidManager,
                 playerManager,
                 enemyManager,
-                explosionManager);
+                explosionManager,
+                powerupManager);
 
             SoundManager.Initialize(Content);
 

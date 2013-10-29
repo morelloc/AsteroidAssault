@@ -75,7 +75,7 @@ namespace Asteroid_Belt_Assault
                     playerSprite.Center + vel * 25f,
                     vel,
                     true);
-                shotTimer = 0.01f;
+                shotTimer = 0.0f;
             }
         }
 
