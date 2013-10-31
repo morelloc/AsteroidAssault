@@ -91,7 +91,9 @@ namespace Asteroid_Belt_Assault
 
             if (keyState.IsKeyDown(Keys.Down))
             {
-                playerSprite.Velocity += new Vector2(0, 1);
+                Vector2 vel = TrigHelper.AngleToVector(playerSprite.Rotation);
+
+                playerSprite.Velocity += -vel;
             }
 
             if (keyState.IsKeyDown(Keys.Left))

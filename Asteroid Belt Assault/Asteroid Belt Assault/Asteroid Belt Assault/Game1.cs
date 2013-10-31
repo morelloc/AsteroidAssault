@@ -93,8 +93,8 @@ namespace Asteroid_Belt_Assault
                 this.Window.ClientBounds.Height);
 
             playerManager = new PlayerManager(
-                spriteSheet,    
-                new Rectangle(0, 150, 50, 50),    
+                spriteSheet,
+                new Rectangle(0, 150, 50, 50),
                 3,
                 new Rectangle(
                     0,
@@ -103,6 +103,8 @@ namespace Asteroid_Belt_Assault
                     this.Window.ClientBounds.Height));
 
             powerupManager = new PowerupManager(spriteSheet, playerManager);
+
+
             enemyManager = new EnemyManager(
                 spriteSheet,
                 new Rectangle(0, 200, 50, 50),
@@ -157,7 +159,7 @@ namespace Asteroid_Belt_Assault
             enemyManager.EnemyShotManager.Shots.Clear();
             playerManager.Destroyed = false;
         }
-        
+
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -199,6 +201,7 @@ namespace Asteroid_Belt_Assault
                     enemyManager.Update(gameTime);
                     explosionManager.Update(gameTime);
                     collisionManager.CheckCollisions();
+                    powerupManager.Update(gameTime);
 
                     if (playerManager.Destroyed)
                     {
@@ -280,6 +283,7 @@ namespace Asteroid_Belt_Assault
                 playerManager.Draw(spriteBatch);
                 enemyManager.Draw(spriteBatch);
                 explosionManager.Draw(spriteBatch);
+                powerupManager.Draw(spriteBatch);
 
                 spriteBatch.DrawString(
                     pericles14,
