@@ -1,4 +1,4 @@
-﻿using System;
+﻿      using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -149,12 +149,10 @@ namespace Asteroid_Belt_Assault
                         powerup.Center,
                         powerup.Velocity / 10);
 
+                    playerManager.minShotTimer = 0.08f;
+
                     powerup.Location = offScreen;
 
-                    playerManager.Destroyed = true;
-                    explosionManager.AddExplosion(
-                        playerManager.playerSprite.Center,
-                        Vector2.Zero);
                 }
             }
         }
@@ -163,6 +161,7 @@ namespace Asteroid_Belt_Assault
         {
             checkShotToEnemyCollisions();
             checkShotToAsteroidCollisions();
+            checkPlayerToPowerupCollisions();
             if (!playerManager.Destroyed)
             {
                 checkShotToPlayerCollisions();
