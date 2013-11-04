@@ -152,7 +152,6 @@ namespace Asteroid_Belt_Assault
                     playerManager.minShotTimer = 0.08f;
 
                     powerup.Location = offScreen;
-
                 }
             }
         }
