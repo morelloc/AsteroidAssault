@@ -137,6 +137,11 @@ namespace Asteroid_Belt_Assault
             // TODO: use this.Content to load your game content here
         }
 
+        private CollisionManager newCollisionManager(AsteroidManager asteroidManager, PlayerManager playerManager, EnemyManager enemyManager, ExplosionManager explosionManager, PowerupManager powerupManager)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
         /// all content.

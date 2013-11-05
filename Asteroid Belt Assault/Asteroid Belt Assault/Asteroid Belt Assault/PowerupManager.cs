@@ -11,7 +11,7 @@ namespace Asteroid_Belt_Assault
     {
 
         public float activeTimer;
-        public bool Dead = false;
+        public bool Stop = false;
 
         public Powerup(
           Vector2 location,
@@ -22,7 +22,7 @@ namespace Asteroid_Belt_Assault
         {
             if (activeTimer >= 10000)
             {
-                Dead = true;
+                Stop = true;
             }
         }
 
@@ -31,45 +31,47 @@ namespace Asteroid_Belt_Assault
             base.Update(gameTime);
 
             activeTimer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+        }
+    }
 
+    class PowerupManager
+    {
+        Texture2D spriteSheet;
+        private PlayerManager playerManager;
+        public List<Powerup> Powerups = new List<Powerup>();
+
+        public PowerupManager(Texture2D spriteSheet, PlayerManager playerManager)
+        {
+            this.spriteSheet = spriteSheet;
+            this.playerManager = playerManager;
+
+            
+            /*if (playerManager.PlayerScore = 3000)
+            {
+                SpawnPowerup();
+            }*/
+
+            SpawnPowerup();
         }
 
-
-        class PowerupManager
+        public void SpawnPowerup()
         {
-            Texture2D spriteSheet;
-            private PlayerManager playerManager;
-            public List<Powerup> Powerups = new List<Powerup>();
+            Powerups.Add(new Powerup(new Vector2(300, 300), spriteSheet, new Rectangle(379, 202, 55, 55), Vector2.Zero));
+        }
 
-            public PowerupManager(Texture2D spriteSheet, PlayerManager playerManager)
-            {
-                this.spriteSheet = spriteSheet;
-                this.playerManager = playerManager;
-
-                // Remove this later
-                SpawnPowerup();
-            }
-
-            public void SpawnPowerup()
-            {
-                Powerups.Add(new Powerup(new Vector2(300, 300), spriteSheet, new Rectangle(379, 202, 55, 55), Vector2.Zero));
-            }
-
-            public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
-            
-
             for (int i = Powerups.Count - 1; i >= 0; i--)
                 Powerups[i].Update(gameTime);
         }
 
-            public void Draw(SpriteBatch spriteBatch)
-            {
-                for (int i = Powerups.Count - 1; i >= 0; i--)
-                    Powerups[i].Draw(spriteBatch);
-            }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            for (int i = Powerups.Count - 1; i >= 0; i--)
+                Powerups[i].Draw(spriteBatch);
         }
     }
+    
 }
 
 
