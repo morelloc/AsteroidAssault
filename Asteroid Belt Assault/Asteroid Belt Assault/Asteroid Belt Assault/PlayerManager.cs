@@ -26,6 +26,10 @@ namespace Asteroid_Belt_Assault
         private int playerRadius = 15;
         public ShotManager PlayerShotManager;
 
+        private float PowerupTimer = 0;
+        private float PowerupTime = 10000f;
+        public bool PowerupOn = false;
+
         public PlayerManager(
             Texture2D texture,  
             Rectangle initialFrame,
@@ -168,6 +172,18 @@ namespace Asteroid_Belt_Assault
                 playerSprite.Velocity = Vector2.Zero;
 
                 shotTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (PowerupOn)
+                {
+                    PowerupTimer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+
+                    if (PowerupTimer > PowerupTime)
+                    {
+                        PowerupTimer = 0;
+                        minShotTimer = 0.2f;
+                        PowerupOn = false;
+                    }
+                }
 
                 HandleKeyboardInput(Keyboard.GetState());
                 HandleGamepadInput(GamePad.GetState(PlayerIndex.One));

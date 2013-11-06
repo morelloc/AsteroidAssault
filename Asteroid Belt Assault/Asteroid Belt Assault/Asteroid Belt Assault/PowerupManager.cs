@@ -20,10 +20,7 @@ namespace Asteroid_Belt_Assault
           Vector2 velocity)
             : base(location, texture, initialFrame, velocity)
         {
-            if (activeTimer >= 10000)
-            {
-                Stop = true;
-            }
+
         }
 
         public override void Update(GameTime gameTime)
@@ -31,6 +28,12 @@ namespace Asteroid_Belt_Assault
             base.Update(gameTime);
 
             activeTimer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+
+            if (activeTimer >= 10000)
+            {
+                location = new Vector2(-500, -500);
+                Stop = true;
+            }
         }
     }
 
@@ -46,16 +49,17 @@ namespace Asteroid_Belt_Assault
             this.playerManager = playerManager;
 
             
-            /*if (playerManager.PlayerScore = 3000)
+            if (playerManager.PlayerScore >= 3000)
             {
                 SpawnPowerup();
-            }*/
+            }
 
             SpawnPowerup();
         }
 
         public void SpawnPowerup()
         {
+           
             Powerups.Add(new Powerup(new Vector2(300, 300), spriteSheet, new Rectangle(379, 202, 55, 55), Vector2.Zero));
         }
 
