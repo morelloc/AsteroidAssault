@@ -1,5 +1,6 @@
 Content\Textures\SpriteSheet.xnb
 Content\Textures\TitleScreen.xnb
+Content\Powerup Rapidfire.xnb
 Content\Sounds\Explosion1.xnb
 Content\Sounds\Explosion2.xnb
 Content\Sounds\Explosion3.xnb
@@ -7,4 +8,3 @@ Content\Sounds\Explosion4.xnb
 Content\Sounds\Shot1.xnb
 Content\Sounds\Shot2.xnb
 Content\Fonts\Pericles14.xnb
-Content\Powerup Rapidfire.xnb

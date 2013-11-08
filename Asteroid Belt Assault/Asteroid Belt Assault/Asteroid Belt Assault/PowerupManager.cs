@@ -48,25 +48,20 @@ namespace Asteroid_Belt_Assault
             this.spriteSheet = spriteSheet;
             this.playerManager = playerManager;
 
-            
+            SpawnPowerup();
            
         }
 
         public void SpawnPowerup()
         {
             Powerups.Add(new Powerup(new Vector2(200, 300), spriteSheet, new Rectangle(382, 194, 45, 50), Vector2.Zero));
-            Powerups.Add(new Powerup(new Vector2(500, 100), spriteSheet, new Rectangle(470, 126, 55, 75), Vector2.Zero));
+            //Powerups.Add(new Powerup(new Vector2(500, 100), spriteSheet, new Rectangle(470, 126, 55, 75), Vector2.Zero));
         }
 
         public void Update(GameTime gameTime)
         {
             for (int i = Powerups.Count - 1; i >= 0; i--)
                 Powerups[i].Update(gameTime);
-
-            if (playerManager.PlayerScore >= 10)
-            {
-                SpawnPowerup();
-            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
